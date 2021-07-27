@@ -1,0 +1,44 @@
+{
+  "name": "prettier-plugin-css-order",
+  "version": "0.0.0",
+  "description": "Sort CSS declarations in a certain order.",
+  "type": "commonjs",
+  "main": "./src/main.js",
+  "files": [
+    "src/*.js",
+    "!src/*.test.js"
+  ],
+  "scripts": {
+    "test": "node src/main.test.js",
+    "lint": "prettier src --check",
+    "format": "prettier src --write",
+    "postversion": "git push --follow-tags"
+  },
+  "dependencies": {
+    "css-declaration-sorter": "^6.1.1",
+    "sync-threads": "^1.0.1"
+  },
+  "peerDependencies": {
+    "prettier": "2.x"
+  },
+  "engines": {
+    "node": ">=14"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Siilwyn/prettier-plugin-css-order.git"
+  },
+  "author": "Selwyn <talk@selwyn.cc> (https://selwyn.cc/)",
+  "license": "ISC",
+  "keywords": [
+    "prettier",
+    "prettier-plugin",
+    "css",
+    "scss",
+    "less",
+    "declaration",
+    "sorter",
+    "property",
+    "order"
+  ]
+}
