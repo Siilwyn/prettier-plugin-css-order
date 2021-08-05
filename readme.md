@@ -7,3 +7,8 @@ Following the Prettier plugin guidelines, this package depends on Prettier as a 
 `npm install postcss prettier-plugin-css-order --save-dev`
 
 After installation Prettier should automatically use this plugin.
+
+### Configuration
+This plugin adds two configurable keys to Prettier:
+- [`order`](https://github.com/Siilwyn/css-declaration-sorter#order) defaults to `concentric-css`.
+- [`keepOverrides`](https://github.com/Siilwyn/css-declaration-sorter#keepoverrides) defaults to `true`, for a new codebase `false` is recommended.
