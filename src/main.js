@@ -10,6 +10,7 @@ const preprocess = (text, options) => {
 
   return sorter({
     text,
+    parser: options.parser,
     pluginOptions: {
       order: options.order,
       keepOverrides: options.keepOverrides,
