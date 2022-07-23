@@ -22,6 +22,18 @@ assert.strictEqual(
   "sorts given SCSS"
 );
 
+assert.strictEqual(
+  prettier.format(
+    "a{\n // something \n font-size: @hi; \n height: 1rem; \n }",
+    {
+      parser: "less",
+      plugins: ["."],
+    }
+  ),
+  "a {\n  height: 1rem;\n  // something\n  font-size: @hi;\n}\n",
+  "sorts given Less"
+);
+
 assert.throws(
   () => prettier.format("/*/*/* x", { parser: "css", plugins: ["."] }),
   "surfaces errors to Prettier"
