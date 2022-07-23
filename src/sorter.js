@@ -5,21 +5,15 @@ const postcssLess = require("postcss-less");
 const postcssScss = require("postcss-scss");
 
 runAsWorker(async ({ text, parser, pluginOptions }) => {
-  let syntax;
-
-  switch(parser) {
-    case "less":
-      syntax = postcssLess;
-      break;
-    case "scss":
-      syntax = postcssScss;
-      break;
-  }
+  const syntaxMapping = {
+    "less": postcssLess,
+    "scss": postcssScss,
+  };
 
   return postcss([cssDeclarationSorter(pluginOptions)])
     .process(text, {
       from: undefined,
-      syntax,
+      syntax: syntaxMapping[parser],
     })
     .then((result) => result.css);
 });
