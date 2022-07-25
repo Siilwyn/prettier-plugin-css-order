@@ -6,8 +6,8 @@ const postcssScss = require("postcss-scss");
 
 runAsWorker(async ({ text, parser, pluginOptions }) => {
   const syntaxMapping = {
-    "less": postcssLess,
-    "scss": postcssScss,
+    less: postcssLess,
+    scss: postcssScss,
   };
 
   return postcss([cssDeclarationSorter(pluginOptions)])
