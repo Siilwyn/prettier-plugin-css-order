@@ -8,7 +8,7 @@ const preprocess = (text, options) => {
     2 * 1024 * 1024
   );
 
-  return sorter({
+  const sortedText = sorter({
     text,
     parser: options.parser,
     pluginOptions: {
@@ -16,6 +16,10 @@ const preprocess = (text, options) => {
       keepOverrides: options.keepOverrides,
     },
   });
+
+  options.originalText = sortedText;
+
+  return sortedText;
 };
 
 module.exports = {
