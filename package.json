@@ -21,10 +21,10 @@
     "sync-threads": "^1.0.1"
   },
   "devDependencies": {
-    "prettier": "2.x"
+    "prettier": "3.x"
   },
   "peerDependencies": {
-    "prettier": "2.x"
+    "prettier": "3.x"
   },
   "engines": {
     "node": ">=14"

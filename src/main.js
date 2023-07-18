@@ -5,7 +5,7 @@ const { createSyncFn } = require("sync-threads");
 const preprocess = (text, options) => {
   const sorter = createSyncFn(
     path.join(__dirname, "sorter.js"),
-    2 * 1024 * 1024
+    2 * 1024 * 1024,
   );
 
   const sortedText = sorter({
