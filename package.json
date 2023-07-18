@@ -15,10 +15,13 @@
     "postversion": "git push --follow-tags"
   },
   "dependencies": {
-    "css-declaration-sorter": "^7.0.0",
+    "css-declaration-sorter": "^7.0.2",
     "postcss-less": "^6.0.0",
-    "postcss-scss": "^4.0.3",
+    "postcss-scss": "^4.0.6",
     "sync-threads": "^1.0.1"
+  },
+  "devDependencies": {
+    "prettier": "2.x"
   },
   "peerDependencies": {
     "prettier": "2.x"
