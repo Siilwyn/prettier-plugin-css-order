@@ -1,28 +1,37 @@
-const path = require("path");
-const prettier = require("prettier/parser-postcss");
-const { createSyncFn } = require("sync-threads");
+import prettierPostcss from "prettier/parser-postcss";
+import postcss from "postcss";
+import { cssDeclarationSorter } from "css-declaration-sorter";
+import postcssLess from "postcss-less";
+import postcssScss from "postcss-scss";
 
-const preprocess = (text, options) => {
-  const sorter = createSyncFn(
-    path.join(__dirname, "sorter.js"),
-    2 * 1024 * 1024
-  );
-
-  const sortedText = sorter({
-    text,
-    parser: options.parser,
-    pluginOptions: {
-      order: options.order,
-      keepOverrides: options.keepOverrides,
-    },
-  });
-
-  options.originalText = sortedText;
-
-  return sortedText;
+const syntaxMapping = {
+  less: postcssLess,
+  scss: postcssScss,
 };
 
-module.exports = {
+function parseSort(text, options) {
+  return postcss([
+    cssDeclarationSorter({
+      order: options.order,
+      keepOverrides: options.keepOverrides,
+    }),
+  ])
+    .process(text, {
+      from: undefined,
+      syntax: syntaxMapping[options.parser],
+    })
+    .then((result) => result.css)
+    .then((sortedCss) => {
+      options.originalText = sortedCss;
+      return prettierPostcss.parsers[options.parser].parse(
+        sortedCss,
+        [options.parser],
+        options,
+      );
+    });
+}
+
+export default {
   options: {
     order: {
       type: "choice",
@@ -56,16 +65,16 @@ module.exports = {
   },
   parsers: {
     css: {
-      ...prettier.parsers.css,
-      preprocess,
+      ...prettierPostcss.parsers.css,
+      parse: parseSort,
     },
     less: {
-      ...prettier.parsers.less,
-      preprocess,
+      ...prettierPostcss.parsers.less,
+      parse: parseSort,
     },
     scss: {
-      ...prettier.parsers.scss,
-      preprocess,
+      ...prettierPostcss.parsers.scss,
+      parse: parseSort,
     },
   },
 };
