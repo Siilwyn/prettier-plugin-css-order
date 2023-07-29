@@ -12,6 +12,26 @@ assert.strictEqual(
 );
 
 assert.strictEqual(
+  await format("a{flex: 0; border: 1;}", {
+    parser: "css",
+    plugins: [plugin],
+    cssDeclarationSorterOrder: "alphabetical",
+  }),
+  "a {\n  border: 1;\n  flex: 0;\n}\n",
+  "uses order option",
+);
+
+assert.strictEqual(
+  await format("a{flex-grow: 0;flex: 1;}", {
+    parser: "css",
+    plugins: [plugin],
+    cssDeclarationSorterKeepOverrides: false,
+  }),
+  "a {\n  flex: 1;\n  flex-grow: 0;\n}\n",
+  "uses keepOverrides option",
+);
+
+assert.strictEqual(
   await format("a{height: 1rem; margin-left: -#{$grid-default-gutter / 2};}", {
     parser: "scss",
     plugins: [plugin],
