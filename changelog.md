@@ -1,6 +1,13 @@
 # Changelog
 All notable changes to this project will be documented in this file.
-The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and follows [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and follows [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
+
+## [2.0.0] - 2023-07-29
+### Changed
+- Options are prefixed with `cssDeclarationSorter`, so `order` becomes `cssDeclarationSorterOrder` and `keepOverrides` becomes `cssDeclarationSorterKeepOverrides`.
+- Uses Prettier 3 with faster async parsing and less dependencies! 🎉 Thanks to @ubermanu for the initial changes.
+### Removed
+- Node.js 14 support.
 
 ## [1.3.1] - 2023-06-08
 ### Fixed
@@ -21,6 +28,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ## [1.0.0] - 2021-07-27
 Initial release.
 
+[2.0.0]: https://github.com/Siilwyn/prettier-plugin-css-order/compare/v1.3.1...v2.0.0
 [1.3.1]: https://github.com/Siilwyn/prettier-plugin-css-order/compare/v1.3.0...v1.3.1
 [1.3.0]: https://github.com/Siilwyn/prettier-plugin-css-order/compare/v1.2.0...v1.3.0
 [1.2.0]: https://github.com/Siilwyn/prettier-plugin-css-order/compare/v1.1.0...v1.2.0
