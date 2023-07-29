@@ -12,8 +12,8 @@ After installation Prettier should automatically use this plugin.
 
 ### Configuration
 This plugin adds two configurable keys to Prettier:
-- [`order`](https://github.com/Siilwyn/css-declaration-sorter#order) defaults to `concentric-css`.
-- [`keepOverrides`](https://github.com/Siilwyn/css-declaration-sorter#keepoverrides) defaults to `true`, for a new codebase `false` is recommended.
+- [`cssDeclarationSorterOrder`](https://github.com/Siilwyn/css-declaration-sorter#order) defaults to `concentric-css`.
+- [`cssDeclarationSorterKeepOverrides`](https://github.com/Siilwyn/css-declaration-sorter#keepoverrides) defaults to `true`, for a new codebase `false` is recommended.
 
 [npm]: https://www.npmjs.com/package/prettier-plugin-css-order
 [npm-badge]: https://tinyshields.dev/npm/prettier-plugin-css-order.svg

@@ -12,8 +12,8 @@ const syntaxMapping = {
 function parseSort(text, options) {
   return postcss([
     cssDeclarationSorter({
-      order: options.order,
-      keepOverrides: options.keepOverrides,
+      order: options.cssDeclarationSorterOrder,
+      keepOverrides: options.cssDeclarationSorterKeepOverrides,
     }),
   ])
     .process(text, {
@@ -33,7 +33,7 @@ function parseSort(text, options) {
 
 export default {
   options: {
-    order: {
+    cssDeclarationSorterOrder: {
       type: "choice",
       description: "One of the built-in sort orders.",
       category: "css-declaration-sorter",
@@ -56,7 +56,7 @@ export default {
         },
       ],
     },
-    keepOverrides: {
+    cssDeclarationSorterKeepOverrides: {
       type: "boolean",
       description: "",
       category: "css-declaration-sorter",
