@@ -8,7 +8,12 @@ Using [css-declaration-sorter](https://github.com/Siilwyn/css-declaration-sorter
 Following the Prettier plugin guidelines, this package depends on Prettier as a peer dependency:  
 `npm install postcss prettier-plugin-css-order --save-dev`
 
-After installation Prettier should automatically use this plugin.
+To enable the plugin use the Prettier API, CLI or configuration file. For example using the JS configuration:
+```js
+{
+  plugins: ["prettier-plugin-css-order"]
+}
+```
 
 ### Configuration
 This plugin adds two configurable keys to Prettier:
