@@ -22,6 +22,17 @@ assert.strictEqual(
 );
 
 assert.strictEqual(
+  await format("a{border: 1;flex: 0;}", {
+    parser: "css",
+    plugins: [plugin],
+    customOrder: true,
+    propertiesOrder: ['flex', 'border']
+  }),
+  "a {\n  flex: 0;\n  border: 1;\n}\n",
+  "uses a custom order",
+);
+
+assert.strictEqual(
   await format("a{flex-grow: 0;flex: 1;}", {
     parser: "css",
     plugins: [plugin],
