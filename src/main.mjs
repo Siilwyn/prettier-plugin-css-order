@@ -9,16 +9,19 @@ const syntaxMapping = {
   scss: postcssScss,
 };
 
-function customSorter(propertiesOrder) {
-  return function (a, b) {
-    return propertiesOrder.indexOf(a) - propertiesOrder.indexOf(b);
-  };
+const createSorter = (propertiesOrder) => (a, b) =>
+  propertiesOrder.indexOf(a) - propertiesOrder.indexOf(b);
+
+function findSorter({ propertiesOrder, cssDeclarationSorterOrder }) {
+  const isCustomOrder = Array.isArray(propertiesOrder) && propertiesOrder.length > 0;
+
+  return isCustomOrder ? createSorter(propertiesOrder) : cssDeclarationSorterOrder;
 }
 
 function parseSort(text, options) {
   return postcss([
     cssDeclarationSorter({
-      order: options.customOrder ? customSorter(options.propertiesOrder) : options.cssDeclarationSorterOrder,
+      order: findSorter(options),
       keepOverrides: options.cssDeclarationSorterKeepOverrides,
     }),
   ])
@@ -68,18 +71,12 @@ export default {
       category: "css-declaration-sorter",
       default: true,
     },
-    customOrder: {
-      type: "boolean",
-      description: "",
-      category: "css-declaration-sorter",
-      default: false,
-    },
     propertiesOrder: {
       type: "string",
+      array: true,
       description:
         "An array of declaration names to sort according to their index in the array.",
       category: "css-declaration-sorter",
-      array: true,
       default: [{ value: [] }],
     },
   },
