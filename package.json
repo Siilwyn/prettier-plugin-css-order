@@ -1,6 +1,6 @@
 {
   "name": "prettier-plugin-css-order",
-  "version": "2.0.1",
+  "version": "2.1.0",
   "description": "Sort CSS declarations in a certain order.",
   "type": "module",
   "main": "./src/main.mjs",
