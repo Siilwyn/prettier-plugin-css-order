@@ -22,26 +22,6 @@ assert.strictEqual(
 );
 
 assert.strictEqual(
-  await format("a{flex: 0;z-index: 1;border: 0;}", {
-    parser: "css",
-    plugins: [plugin],
-    cssDeclarationSorterCustomOrder: ["z-index", "flex", "border"],
-  }),
-  "a {\n  z-index: 1;\n  flex: 0;\n  border: 0;\n}\n",
-  "uses custom order option",
-);
-
-assert.strictEqual(
-  await format("a{z-index: 1;flex: 0;border: 0;}", {
-    parser: "css",
-    plugins: [plugin],
-    cssDeclarationSorterCustomOrder: [],
-  }),
-  "a {\n  z-index: 1;\n  flex: 0;\n  border: 0;\n}\n",
-  "empty custom order option keeps properties in place",
-);
-
-assert.strictEqual(
   await format("a{flex-grow: 0;flex: 1;}", {
     parser: "css",
     plugins: [plugin],
