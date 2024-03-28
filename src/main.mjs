@@ -13,7 +13,7 @@ function resolveSorterOption({
   cssDeclarationSorterCustomOrder,
   cssDeclarationSorterOrder,
 }) {
-  return Array.isArray(cssDeclarationSorterCustomOrder)
+  return cssDeclarationSorterCustomOrder.length > 0
     ? (a, b) =>
         cssDeclarationSorterCustomOrder.indexOf(a) -
         cssDeclarationSorterCustomOrder.indexOf(b)
@@ -79,6 +79,7 @@ export default {
       description:
         "An array of property names, their order is used to sort with. This overrides the `cssDeclarationSorterOrder` option!",
       category: "css-declaration-sorter",
+      default: [{ value: [] }],
     },
   },
   parsers: {

@@ -32,13 +32,13 @@ assert.strictEqual(
 );
 
 assert.strictEqual(
-  await format("a{z-index: 1;flex: 0;border: 0;}", {
+  await format("a{border: 1;z-index: 0;}", {
     parser: "css",
     plugins: [plugin],
     cssDeclarationSorterCustomOrder: [],
   }),
-  "a {\n  z-index: 1;\n  flex: 0;\n  border: 0;\n}\n",
-  "empty custom order option keeps properties in place",
+  "a {\n  z-index: 0;\n  border: 1;\n}\n",
+  "empty custom order option causes the option to be unused",
 );
 
 assert.strictEqual(
