@@ -2,6 +2,10 @@
 All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and follows [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [2.1.2] - 2024-04-01
+### Fixed
+- Bring back custom order feature introduced in `2.1.0`.
+
 ## [2.1.1] - 2024-03-26
 ### Fixed
 - Revert addition of new option because it breaks usage without.
@@ -40,6 +44,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) 
 ## [1.0.0] - 2021-07-27
 Initial release.
 
+[2.1.2]: https://github.com/Siilwyn/prettier-plugin-css-order/compare/v2.1.1...v2.1.2
 [2.1.1]: https://github.com/Siilwyn/prettier-plugin-css-order/compare/v2.1.0...v2.1.1
 [2.1.0]: https://github.com/Siilwyn/prettier-plugin-css-order/compare/v2.0.1...v2.1.0
 [2.0.1]: https://github.com/Siilwyn/prettier-plugin-css-order/compare/v2.0.0...v2.0.1
