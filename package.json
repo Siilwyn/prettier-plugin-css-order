@@ -15,7 +15,7 @@
     "postversion": "git push --follow-tags"
   },
   "dependencies": {
-    "css-declaration-sorter": "^7.1.1",
+    "css-declaration-sorter": "^7.3.0",
     "postcss-less": "^6.0.0",
     "postcss-scss": "^4.0.9"
   },
