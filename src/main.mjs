@@ -37,7 +37,7 @@ function parseSort(text, options) {
       return prettierPostcss.parsers[options.parser].parse(
         sortedCss,
         [options.parser],
-        options,
+        options
       );
     });
 }
@@ -64,6 +64,11 @@ export default {
           value: "concentric-css",
           description:
             "Order properties applying outside the box model, moving inward to intrinsic changes.",
+        },
+        {
+          value: "frakto",
+          description:
+            "Order based on logical grouping, real-world usage, and the browser’s rendering flow.",
         },
       ],
     },
