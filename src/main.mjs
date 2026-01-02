@@ -65,6 +65,11 @@ export default {
           description:
             "Order properties applying outside the box model, moving inward to intrinsic changes.",
         },
+        {
+          value: "frakto",
+          description:
+            "Order from the outermost layout and positioning rules, moving inward through structure, style, and interaction — inspired by the browser’s render tree.",
+        },
       ],
     },
     cssDeclarationSorterKeepOverrides: {
