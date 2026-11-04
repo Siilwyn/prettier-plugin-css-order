@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "css-declaration-sorter": "^7.4.0",
-    "postcss-less": "^6.0.0",
+    "postcss-less": "^7.0.1",
     "postcss-scss": "^4.0.9"
   },
   "peerDependencies": {
